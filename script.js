@@ -12,3 +12,19 @@ navLinks.forEach((link) => {
     });
   });
 });
+
+window.onload = function() {
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // generate a five digit number for the contact_number variable
+      // these IDs from the previous steps
+      emailjs.sendForm('service_0m454eg', 'template_51yljho', this)
+          .then(function() {
+              console.log('SUCCESS!');
+
+          }, function(error) {
+              console.log('FAILED...', error);
+          });
+      this.reset()
+  });
+}
