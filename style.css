@@ -1,14 +1,17 @@
 :root {
-  --light-green: #abfaa9ff;
+  --light-green: hsl(119, 60%, 85%);
   --cadet-gray: #95a3b3ff;
   --tekhelet: #4c2c69ff;
-  --office-green: #0e811eff;
+  --office-green: rgb(40, 165, 57);
   --dark-purple: #42253bff;
 
   --accent-color: #9999cc;
   --primary-color: #0e811e;
   --primary-color-light: #8db687;
-  --light-color: #f6edd9;
+  --light-color: #f0f0f0;
+
+  --accent-color: var(--office-green);
+  --light-color: var(--light-green);
 }
 
 * {
@@ -30,7 +33,7 @@ a:hover {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: var(--light-color);
   color: var(--accent-color);
 }
 
@@ -66,7 +69,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #fff;
+  color: var(--light-color);
   text-decoration: none;
   padding: 10px;
   transform: none;
@@ -85,16 +88,21 @@ section {
   /* min-height: calc(100vh - var(--header-height)); */
 }
 
+p {
+  margin-top: 1em;
+}
+
 .container {
   width: 80%;
-  margin: 0 auto;
+  margin: 2rem auto;
+  flex: 1;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  background-color: #fff;
+  background-color: var(--light-color);
   padding: 2em;
   border-radius: 1em;
   border: 1px solid var(--accent-color);
@@ -106,55 +114,61 @@ h2 {
   margin-bottom: 20px;
 }
 
-.project {
-  margin-bottom: 30px;
-
-  display: flex;
-  flex-direction: row;
-
-  border-bottom: 1px solid var(--accent-color);
-  padding-bottom: 20px;
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--light-color);
 }
 
-/* every other .project has order reversed */
+.dark {
+  background-color: var(--accent-color);
+  color: var(--light-color);
+}
+
+#portfolio {
+
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.project {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid var(--accent-color);
+
+}
+
+.project > * {
+  flex: 1;
+  margin-inline: 1em;
+}
+
+.project img {
+  max-width: 100%; 
+  height: auto;
+}
+
 .project:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-.project img {
-  width: 100%;
-  aspect-ratio: 16/9;
+.project a div {
+  background-color: var(--light-color);
+  color: var(--accent-color);
+  padding: 0.5em;
+  margin-top: 1em;
 
-  object-fit: cover;
-
-  border-radius: 1em;
-  border: 1px solid var(--accent-color);
-
-
-}
-
-.project .content {
-  width: 100%;
-  padding: 0 1em;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-}
-
-.project h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  border-radius: 0.5em;
+  width: fit-content;
 }
 
 form {
   margin: 0 auto;
   width: 50%;
   padding: 1em;
-  border: 1px solid #ccc;
+  border: 1px solid var(--light-color);
   border-radius: 1em;
 
   display: flex;
@@ -167,7 +181,7 @@ form input, form textarea {
   margin-bottom: 1em;
   padding: 0.5em;
   border-radius: 0.5em;
-  border: 1px solid #ccc;
+  border: 1px solid var(--light-color);
 
   width: 100%;
 }
@@ -175,15 +189,15 @@ form input, form textarea {
 form button {
   padding: 0.5em;
   border-radius: 0.5em;
-  border: 1px solid #ccc;
-  background-color: #333;
-  color: #fff;
+  border: 1px solid var(--light-color);
+  background-color: var(--accent-color);
+  color: var(--light-color);
   cursor: pointer;
 }
 
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--accent-color);
+  color: var(--light-color);
   padding: 20px;
   text-align: center;
 }
